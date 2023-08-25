@@ -1,0 +1,33 @@
+{
+    "root": true,
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "eslint:recommended",
+        "standard-with-typescript",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "next/core-web-vitals",
+        "plugin:prettier/recommended",
+        "prettier"
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": [
+        "react","@typescript-eslint"
+    ],
+    "rules": {
+        "react/react-in-jsx-scope": "off", //jsx파일에서 React를 import 하지 않아도 됨.
+        "no-unused-vars": "off", //타입스크립트 사용시 interface의 변수명을 eslint가 잡지 않도록 함.
+        "@typescript-eslint/no-unused-vars": "warn", //대신 사용하지 않는 변수는 @typescript/eslint를 통해 잡아줌.
+        "@typescript-eslint/explicit-function-return-type": "off", // 함수의 리턴 타입을 꼭 정하도록 만드는 규칙 (컴포넌트 에러 때문에 제거)
+        "@typescript-eslint/strict-boolean-expressions": "off" // 조건식의 null이 있을 경우 널 병합 연산자 사용해야하는 규칙
+    }
+}
