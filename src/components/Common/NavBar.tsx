@@ -16,11 +16,7 @@ const NavBar = () => {
           <Link href="/">Logo</Link>
         </div>
         <div className=" text-2xl sm:hidden">
-          {!isMenu ? (
-            <button onClick={onClickMenuHandler}>+</button>
-          ) : (
-            <button onClick={onClickMenuHandler}>-</button>
-          )}
+          {!isMenu ? <button onClick={onClickMenuHandler}>+</button> : <button onClick={onClickMenuHandler}>-</button>}
         </div>
         <div className=" block sm:block">
           <NavItem />
