@@ -21,7 +21,7 @@
         "project": "./tsconfig.json"
     },
     "plugins": [
-        "react","@typescript-eslint"
+        "react","@typescript-eslint","prettier"
     ],
     "rules": {
         "react/react-in-jsx-scope": "off", //jsx파일에서 React를 import 하지 않아도 됨.
@@ -30,6 +30,9 @@
         "@typescript-eslint/explicit-function-return-type": "off", // 함수의 리턴 타입을 꼭 정하도록 만드는 규칙 (컴포넌트 에러 때문에 제거)
         "@typescript-eslint/strict-boolean-expressions": "off", // 조건식의 null이 있을 경우 널 병합 연산자 사용해야하는 규칙
         "@typescript-eslint/no-non-null-assertion": "off", // Non-Null Assertion Operator 사용 시 에러 ex) process.env.AUTH!
-        "@typescript-eslint/consistent-type-imports": "off" // 타입 유형 import를 사용할 수 없는 규칙
+        "@typescript-eslint/consistent-type-imports": "off", // 타입 유형 import를 사용할 수 없는 규칙
+        "@typescript-eslint/no-misused-promises": "off", // 타입스크립트 자체에는 문제가 없지만 허용되지 않은 곳에서 Promise를 반환하는 함수를 잡는 규칙
+        "@typescript-eslint/promise-function-async": "off", // Promise를 반환하는 함수는 무조건 async를 붙여야 하는 규칙
+        "prettier/prettier": "off"
     }
 }
