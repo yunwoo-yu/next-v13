@@ -9,8 +9,6 @@ interface NavItemProps {
 const NavItem = ({ mobile }: NavItemProps) => {
   const { data: session, status } = useSession();
 
-  console.log({ session }, status);
-
   return (
     <ul className={`flex w-full items-center justify-center gap-4 ${mobile && 'flex-col'}`}>
       <li className="cursor-pointer border-b-4 py-2 text-center">
