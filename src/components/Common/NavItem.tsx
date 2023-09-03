@@ -7,7 +7,7 @@ interface NavItemProps {
 }
 
 const NavItem = ({ mobile }: NavItemProps) => {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
   return (
     <ul className={`flex w-full items-center justify-center gap-4 ${mobile && 'flex-col'}`}>
