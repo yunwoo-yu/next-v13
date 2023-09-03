@@ -9,13 +9,14 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
 }
 
-const Input = ({ id, formatPrice, label, register, required, errors }: InputProps) => {
+const Input = ({ id, formatPrice, label, register, required, errors, ...props }: InputProps) => {
   return (
     <div className="relative w-full">
       {formatPrice && <span className="absolute left-2 top-5 text-neutral-700">￦</span>}
       <input
         {...register(id, { required })}
-        className={`w-full rounded-md bg-white p-4 pt-6 font-light outline-none transition disabled:cursor-not-allowed disabled:opacity-70 
+        {...props}
+        className={`w-full rounded-md border-2 bg-white p-4 pt-6 font-light outline-none transition disabled:cursor-not-allowed disabled:opacity-70 
         ${formatPrice ? 'pl-9' : 'pl-4'}
         ${errors[id] ? 'border-rose-500' : 'border-neutral-300'}
         ${errors[id] ? 'focus:border-rose-500' : 'focus:border-black'}
