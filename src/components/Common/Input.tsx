@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, forwardRef } from 'react';
+import { InputHTMLAttributes, Ref, forwardRef } from 'react';
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -9,7 +9,10 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
 }
 
-const Input = ({ id, formatPrice, label, register, required, errors, ...props }: InputProps) => {
+const Input = (
+  { id, formatPrice, label, register, required, errors, ...props }: InputProps,
+  ref: Ref<HTMLInputElement>
+) => {
   return (
     <div className="relative w-full">
       {formatPrice && <span className="absolute left-2 top-5 text-neutral-700">￦</span>}
