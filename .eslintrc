@@ -34,6 +34,7 @@
         "@typescript-eslint/no-misused-promises": "off", // 타입스크립트 자체에는 문제가 없지만 허용되지 않은 곳에서 Promise를 반환하는 함수를 잡는 규칙
         "@typescript-eslint/promise-function-async": "off", // Promise를 반환하는 함수는 무조건 async를 붙여야 하는 규칙
         "@typescript-eslint/no-floating-promises": "off", // Promise를 반환하는 도중 비동기 처리에 대한 규정 방식을 적용해야 하는 규칙 (이상함)
-        "prettier/prettier": "off"
+        "prettier/prettier": "off",
+        "@typescript-eslint/prefer-nullish-coalescing": "off" // 널리쉬 병합연산자를 사용하는 규칙
     }
 }
