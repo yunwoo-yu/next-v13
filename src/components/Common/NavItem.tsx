@@ -1,7 +1,6 @@
 import { User } from '@prisma/client';
-import { signIn, signOut, useSession } from 'next-auth/react';
+import { signIn, signOut } from 'next-auth/react';
 import Link from 'next/link';
-import React from 'react';
 
 interface NavItemProps {
   mobile?: boolean;
