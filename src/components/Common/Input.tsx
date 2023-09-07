@@ -15,7 +15,7 @@ const Input = (
 ) => {
   return (
     <div className="relative w-full">
-      {formatPrice && <span className="absolute left-2 top-5 text-neutral-700">￦</span>}
+      {formatPrice && <span className="absolute left-3 top-5 text-neutral-700">￦</span>}
       <input
         {...register(id, { required })}
         {...props}
