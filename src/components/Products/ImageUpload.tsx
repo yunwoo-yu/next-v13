@@ -1,4 +1,5 @@
-import { CldUploadWidget } from 'next-cloudinary';
+import { CloudinaryInfoData } from '@/types/types';
+import { CldUploadWidget, CldUploadWidgetResults } from 'next-cloudinary';
 import Image from 'next/image';
 import { TbPhotoPlus } from 'react-icons/tb';
 
@@ -8,15 +9,20 @@ interface ImageUploadProps {
 }
 
 const ImageUpload = ({ onChange, value }: ImageUploadProps) => {
-  const onUploadHandler = (result: any) => {
-    console.log(result);
-    onChange(result.info.secure_url);
+  const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
+
+  const onUploadHandler = (result: CldUploadWidgetResults) => {
+    const info = result.info as CloudinaryInfoData;
+
+    if (info) {
+      onChange(info.secure_url);
+    }
   };
 
   return (
     <CldUploadWidget
       onUpload={onUploadHandler}
-      uploadPreset={'jkii'}
+      uploadPreset={uploadPreset}
       options={{
         maxFiles: 1,
       }}
