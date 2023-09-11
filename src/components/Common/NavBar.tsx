@@ -10,7 +10,7 @@ interface NavBarProps {
 }
 
 const NavBar = ({ currentUser }: NavBarProps) => {
-  const [isMenu, setIsMenu] = useState(false);
+  const [isMenu] = useState(false);
 
   const onClickMenuHandler = () => {};
 
