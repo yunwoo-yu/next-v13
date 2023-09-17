@@ -1,5 +1,7 @@
 'use client';
 
+import { categories } from '@/components/Categories/Categories';
+import CategoryInput from '@/components/Categories/CategoryInput';
 import Button from '@/components/Common/Button';
 import Container from '@/components/Common/Container';
 import Heading from '@/components/Common/Heading';
@@ -28,6 +30,7 @@ const ProductUploadPage = () => {
     },
   });
   const imageSrc = watch('imageSrc');
+  const category = watch('category');
 
   const onSubmitHandler: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
@@ -64,7 +67,19 @@ const ProductUploadPage = () => {
             required
           />
           <hr />
-          <div className="max-[50vh] grid grid-cols-1 gap-3 overflow-y-auto md:grid-cols-2"></div>
+          <div className="max-[50vh] grid grid-cols-1 gap-3 overflow-y-auto md:grid-cols-2">
+            {categories.map((item) => (
+              <div key={item.label} className="col-span-1">
+                <CategoryInput
+                  onClick={(category) => setCustomValue('category', category)}
+                  selected={category === item.path}
+                  label={item.label}
+                  icon={item.icon}
+                  path={item.path}
+                />
+              </div>
+            ))}
+          </div>
           <hr />
           <Button label="상품 생성하기" />
         </form>
