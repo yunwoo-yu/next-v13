@@ -7,12 +7,15 @@ import Container from '@/components/Common/Container';
 import Heading from '@/components/Common/Heading';
 import Input from '@/components/Common/Input';
 import ImageUpload from '@/components/Products/ImageUpload';
+import axios from 'axios';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
 const ProductUploadPage = () => {
-  const [isLoading] = useState(false);
+  const route = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -36,8 +39,18 @@ const ProductUploadPage = () => {
   const longitude = watch('longitude');
   const KakaoMap = dynamic(() => import('../../../components/Common/KakaoMap'), { ssr: false });
 
-  const onSubmitHandler: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
+  const onSubmitHandler: SubmitHandler<FieldValues> = async (data) => {
+    setIsLoading(true);
+
+    try {
+      const response = await axios.post('/api/products', data);
+
+      route.push(`/products/${response.data.id}`);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const setCustomValue = (id: string, value: unknown) => {
