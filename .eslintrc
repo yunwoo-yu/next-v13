@@ -38,7 +38,7 @@
         "@typescript-eslint/prefer-nullish-coalescing": "off", // 널리쉬 병합연산자를 사용하는 규칙
         "@typescript-eslint/prefer-optional-chain": "off", // ?. null || string 일때 연산자를 사용하도록 하는 규칙
         "@typescript-eslint/no-confusing-void-expression": "off", // 인자로 void 함수가 들어가면 안되는 규칙
-        "@typescript-eslint/triple-slash-reference": "off" // /// 트리플 슬러쉬를 사용하면 안되는 규칙
-
+        "@typescript-eslint/triple-slash-reference": "off", // /// 트리플 슬러쉬를 사용하면 안되는 규칙
+        "@typescript-eslint/no-explicit-any": "off" // any 사용 시 에러를 반환하는 규칙
     }
 }
