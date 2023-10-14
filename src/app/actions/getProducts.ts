@@ -10,7 +10,6 @@ export default async function getProducts(params: ProductsParams) {
   try {
     const { latitude, longitude, category } = params;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const query: any = {};
 
     if (category) {
