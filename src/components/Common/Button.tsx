@@ -1,7 +1,7 @@
-import React, { Ref, forwardRef } from 'react';
+import React, { HTMLAttributes, Ref, forwardRef } from 'react';
 import { IconType } from 'react-icons';
 
-interface ButtonProps {
+interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   label: string;
   outline?: boolean;
   small?: boolean;
